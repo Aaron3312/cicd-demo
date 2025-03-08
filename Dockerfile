@@ -1,7 +1,11 @@
-FROM python:3.8
+FROM openjdk:17
+
 WORKDIR /app
+
 COPY . /app
-RUN pip install flask
+
+RUN javac Main.java
+
 EXPOSE 8080
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+
+CMD ["java", "Main"]
